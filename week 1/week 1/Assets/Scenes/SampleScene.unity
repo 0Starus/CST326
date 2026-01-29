@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5c4cedc8b26ae074a93a3329dae12408, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 425537113}
   - component: {fileID: 425537112}
   - component: {fileID: 425537111}
+  - component: {fileID: 425537114}
   m_Layer: 0
   m_Name: Uranus
   m_TagString: Untagged
@@ -495,6 +496,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425537109}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &425537114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425537109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 10
 --- !u!1 &657326889
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +523,7 @@ GameObject:
   - component: {fileID: 657326893}
   - component: {fileID: 657326892}
   - component: {fileID: 657326891}
+  - component: {fileID: 657326894}
   m_Layer: 0
   m_Name: Neptune
   m_TagString: Untagged
@@ -607,6 +624,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657326889}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &657326894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657326889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +700,7 @@ GameObject:
   - component: {fileID: 940425991}
   - component: {fileID: 940425990}
   - component: {fileID: 940425989}
+  - component: {fileID: 940425992}
   m_Layer: 0
   m_Name: Mars
   m_TagString: Untagged
@@ -768,6 +801,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940425987}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &940425992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940425987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 25
 --- !u!1 &1014895899
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::doot
-  YawSpeedPerSecond: 45
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 15
 --- !u!1 &1213361617
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +964,7 @@ GameObject:
   - component: {fileID: 1213361621}
   - component: {fileID: 1213361620}
   - component: {fileID: 1213361619}
+  - component: {fileID: 1213361622}
   m_Layer: 0
   m_Name: Venus
   m_TagString: Untagged
@@ -1014,6 +1065,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213361617}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1213361622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213361617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 40
 --- !u!1 &1290967532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1092,7 @@ GameObject:
   - component: {fileID: 1290967536}
   - component: {fileID: 1290967535}
   - component: {fileID: 1290967534}
+  - component: {fileID: 1290967537}
   m_Layer: 0
   m_Name: Mercury
   m_TagString: Untagged
@@ -1126,6 +1193,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290967532}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1290967537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290967532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 45
 --- !u!1 &1761388632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::doot
-  YawSpeedPerSecond: 45
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 30
 --- !u!1 &1776805408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1761388633}
+  axis: {x: 0, y: 1, z: 0}
   YawSpeedPerSecond: 45
 --- !u!1 &1869460108
 GameObject:
@@ -1391,6 +1477,7 @@ GameObject:
   - component: {fileID: 1869460112}
   - component: {fileID: 1869460111}
   - component: {fileID: 1869460110}
+  - component: {fileID: 1869460113}
   m_Layer: 0
   m_Name: Jupiter
   m_TagString: Untagged
@@ -1491,6 +1578,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869460108}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1869460113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869460108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 20
 --- !u!1 &2112825710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1605,7 @@ GameObject:
   - component: {fileID: 2112825714}
   - component: {fileID: 2112825713}
   - component: {fileID: 2112825712}
+  - component: {fileID: 2112825715}
   m_Layer: 0
   m_Name: Saturn
   m_TagString: Untagged
@@ -1603,6 +1706,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112825710}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2112825715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112825710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd8fbb7c2d2ff43b09ab69b2a8109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::doot
+  centerPoint: {fileID: 1014895903}
+  axis: {x: 0, y: 1, z: 0}
+  YawSpeedPerSecond: 15
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
