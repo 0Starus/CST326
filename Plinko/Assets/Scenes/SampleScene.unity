@@ -5472,7 +5472,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1240325791}
-  - component: {fileID: 1240325790}
   - component: {fileID: 1240325792}
   m_Layer: 0
   m_Name: Ball Spawner
@@ -5481,19 +5480,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1240325790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240325789}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f828e2779542e5a4c9882a8bf6edf2af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
-  ballPrefab: {fileID: 5859970833854475897, guid: 8477a0908701d064dad0ed2b4ab9d141, type: 3}
 --- !u!4 &1240325791
 Transform:
   m_ObjectHideFlags: 0
@@ -5522,6 +5508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSpawner
   ballPrefab: {fileID: 520965382558576685, guid: 8714a11b315a0b3418af7d294b449ff1, type: 3}
+  timer: 0
 --- !u!1 &1263196002
 GameObject:
   m_ObjectHideFlags: 0
