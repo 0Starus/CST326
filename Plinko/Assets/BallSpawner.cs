@@ -7,7 +7,9 @@ public class BallSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject ballPrefab;
     public int timer;
-    void Start()
+    public int score;
+    public Transform spawner;
+    void Start() 
     {
         Instantiate(ballPrefab);
         timer = 100;
@@ -24,8 +26,11 @@ public class BallSpawner : MonoBehaviour
         {
             if(timer == 0)
             {
+                float randomizer = Random.Range(-1f, 1f); 
                 Transform myTransform = GetComponent<Transform>();
+                myTransform.position += Vector3.right*randomizer;
                 Instantiate(ballPrefab,myTransform.position, Quaternion.identity);
+                myTransform.position -= Vector3.right*randomizer;
                 timer = 100;
             }
         }
