@@ -1,0 +1,107 @@
+{
+    "version": 1,
+    "name": "Paddle",
+    "maps": [
+        {
+            "name": "paddles",
+            "id": "cd14f4ff-3084-4610-ba55-a835dc58cebe",
+            "actions": [
+                {
+                    "name": "p1Up",
+                    "type": "Button",
+                    "id": "e77bb5d9-7a2b-4c8b-b538-3702c1a13125",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "p1Down",
+                    "type": "Button",
+                    "id": "9f236118-9317-4779-8f5c-3694a962abc5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "p2Up",
+                    "type": "Button",
+                    "id": "8ce803cb-c1f3-4764-ae23-50c19f727b48",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "p2Down",
+                    "type": "Button",
+                    "id": "7728c240-c35e-4b3f-8522-35f289aedf9f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f4edee05-bfe2-4de9-8942-7ad18b57371b",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "p1Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee232b1c-f8e5-47c2-bb34-083f423bbab6",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "p1Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "158880ca-1535-4efe-9096-de233f6ad69b",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "p2Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27d0b9d0-4a52-46a6-8237-599636add98d",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "p2Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New Control Scheme",
+            "bindingGroup": "New Control Scheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
