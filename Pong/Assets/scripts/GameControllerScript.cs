@@ -108,7 +108,7 @@ public class GameControllerScript : MonoBehaviour
 	{
 		player1Score++;
 		Debug.Log("Player 1 scored! Player 1's score is: "+player1Score);
-		if (player1Score > 11)
+		if (player1Score >= 11)
 			{
 				score.text = "PLAYER 1 WINS!";
 				player1Score = 0;
@@ -123,7 +123,7 @@ public class GameControllerScript : MonoBehaviour
 	{
 		player2Score++;
 		Debug.Log("Player 2 scored! Player 2's score is: "+player2Score);
-		if (player2Score > 11)
+		if (player2Score >= 11)
 		{
 			score.text = "PLAYER 2 WINS!";
 			player1Score = 0;
