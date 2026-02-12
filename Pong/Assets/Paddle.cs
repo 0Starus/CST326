@@ -127,6 +127,15 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Stun"",
+                    ""type"": ""Button"",
+                    ""id"": ""81056dcf-a807-4718-9a18-ee02f695efc8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -173,6 +182,17 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
                     ""action"": ""p2Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83602f65-9c70-41a2-ba70-1340297109f7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +217,7 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
         m_paddles_p1Down = m_paddles.FindAction("p1Down", throwIfNotFound: true);
         m_paddles_p2Up = m_paddles.FindAction("p2Up", throwIfNotFound: true);
         m_paddles_p2Down = m_paddles.FindAction("p2Down", throwIfNotFound: true);
+        m_paddles_Stun = m_paddles.FindAction("Stun", throwIfNotFound: true);
     }
 
     ~@Paddle()
@@ -281,6 +302,7 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
     private readonly InputAction m_paddles_p1Down;
     private readonly InputAction m_paddles_p2Up;
     private readonly InputAction m_paddles_p2Down;
+    private readonly InputAction m_paddles_Stun;
     /// <summary>
     /// Provides access to input actions defined in input action map "paddles".
     /// </summary>
@@ -308,6 +330,10 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "paddles/p2Down".
         /// </summary>
         public InputAction @p2Down => m_Wrapper.m_paddles_p2Down;
+        /// <summary>
+        /// Provides access to the underlying input action "paddles/Stun".
+        /// </summary>
+        public InputAction @Stun => m_Wrapper.m_paddles_Stun;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -346,6 +372,9 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
             @p2Down.started += instance.OnP2Down;
             @p2Down.performed += instance.OnP2Down;
             @p2Down.canceled += instance.OnP2Down;
+            @Stun.started += instance.OnStun;
+            @Stun.performed += instance.OnStun;
+            @Stun.canceled += instance.OnStun;
         }
 
         /// <summary>
@@ -369,6 +398,9 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
             @p2Down.started -= instance.OnP2Down;
             @p2Down.performed -= instance.OnP2Down;
             @p2Down.canceled -= instance.OnP2Down;
+            @Stun.started -= instance.OnStun;
+            @Stun.performed -= instance.OnStun;
+            @Stun.canceled -= instance.OnStun;
         }
 
         /// <summary>
@@ -450,5 +482,12 @@ public partial class @Paddle: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2Down(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Stun" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStun(InputAction.CallbackContext context);
     }
 }

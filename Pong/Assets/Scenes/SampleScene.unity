@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 750280393}
   - component: {fileID: 750280392}
   - component: {fileID: 750280391}
+  - component: {fileID: 750280396}
   m_Layer: 0
   m_Name: paddle 1
   m_TagString: paddle
@@ -635,6 +636,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2027120688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750280396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750280390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98cd9dd5f0f332e429ee9a72eae901ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaddleScript
+  playerNum: 1
+  gameSctipt: {fileID: 2027120689}
 --- !u!1 &751529105
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c13599a11ee6543a880012cc19d8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallScript
-  ballSpeed: 20
+  ballSpeed: 5
   ballVector: {x: 0, y: 0, z: 0}
   GameController: {fileID: 2027120689}
 --- !u!1 &772150658
@@ -1179,6 +1194,7 @@ GameObject:
   - component: {fileID: 1297115312}
   - component: {fileID: 1297115311}
   - component: {fileID: 1297115310}
+  - component: {fileID: 1297115315}
   m_Layer: 0
   m_Name: paddle 2
   m_TagString: paddle
@@ -1302,6 +1318,149 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 40, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2027120688}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297115315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297115309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98cd9dd5f0f332e429ee9a72eae901ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaddleScript
+  playerNum: 2
+  gameSctipt: {fileID: 2027120689}
+--- !u!1 &1342786076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342786078}
+  - component: {fileID: 1342786077}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1342786077
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342786076}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 36b7142068aa1f941a7149972553ad82, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1342786078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342786076}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.76146, y: -40.56986, z: -0.46645}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027120688}
@@ -1456,6 +1615,7 @@ Transform:
   - {fileID: 2093854790}
   - {fileID: 772150659}
   - {fileID: 282771942}
+  - {fileID: 1342786078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2027120689
@@ -1470,14 +1630,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258660ea079801f43929d24350effd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameControllerScript
-  paddleSpeed: 10
-  forceStrength: 10
+  paddle1Speed: 50
+  paddle2Speed: 50
   Paddle1: {fileID: 750280391}
   Paddle2: {fileID: 1297115310}
   Ball: {fileID: 751529110}
   score: {fileID: 2116657043}
-  player1Score: 0
-  player2Score: 0
+  player1Score: 4
+  player2Score: 10
+  p1hasStun: 0
+  p2hasStun: 0
+  p1Stunned: 0
+  p2Stunned: 0
+  audioControl: {fileID: 1342786077}
+  hitSound: {fileID: 8300000, guid: 36b7142068aa1f941a7149972553ad82, type: 3}
+  SpeedBoostPrefab: {fileID: 3317498816890335943, guid: 0e391242c08b9e2479486ef3797fd07f, type: 3}
+  HyperSpeedPrefab: {fileID: 3817092582973799619, guid: 3ae27b76890d0b149bb1ce6ccec83b93, type: 3}
+  StunnerPrefab: {fileID: 5548409551556619409, guid: 97e7044bcb18bcf4699c5262e2f595a7, type: 3}
+  BallScript: {fileID: 751529111}
+  StunTimer: 250
 --- !u!114 &2027120690
 MonoBehaviour:
   m_ObjectHideFlags: 0

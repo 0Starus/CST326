@@ -9,6 +9,9 @@ TagManager:
   - paddle 2 zone
   - paddle 1
   - paddle 2
+  - HyperSpeed
+  - Stunner
+  - SpeedBoost
   layers:
   - Default
   - TransparentFX

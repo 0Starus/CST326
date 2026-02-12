@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Stun",
+                    "type": "Button",
+                    "id": "81056dcf-a807-4718-9a18-ee02f695efc8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -85,6 +94,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "p2Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83602f65-9c70-41a2-ba70-1340297109f7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

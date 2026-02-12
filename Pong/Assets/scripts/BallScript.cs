@@ -8,7 +8,7 @@ public class BallScript : MonoBehaviour
 	public Vector3 ballVector;
 
 	public GameControllerScript GameController;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,8 +31,10 @@ public class BallScript : MonoBehaviour
 		Vector3 force = new Vector3(0f,0f,0f);
 		if (collision.gameObject.tag == "paddle")
 		{
+			ballSpeed= ballSpeed*5f;
 			force = new Vector3(-ballVector.x*5f,0f,ballVector.z*5f);
 			Debug.Log("hit paddle");
+			GameController.hitPaddle();
 		}
 		else
 		{
@@ -45,6 +47,13 @@ public class BallScript : MonoBehaviour
 		
     }
 
+	public void hyperSpeedPowerUp()
+	{
+		ballSpeed = ballSpeed*5;
+		Rigidbody Ball = GetComponent<Rigidbody>();
+		Ball.linearVelocity*=ballSpeed;
+		
+	}
     void OnTriggerEnter(Collider collider)
     {
     	if (collider.gameObject.tag=="paddle 1 zone")
