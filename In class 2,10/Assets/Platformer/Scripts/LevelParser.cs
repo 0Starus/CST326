@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using JetBrains.Annotations;
 
 /*
  * This script is responsible for reading a level layout from a text file and constructing the level
@@ -39,7 +41,11 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
-
+    
+    public TextMeshProUGUI time;
+    public TextMeshProUGUI coin;
+    public int timer = 500;
+    public int coins = 0;
     void Start()
     {
         LoadLevel();
@@ -47,8 +53,21 @@ public class LevelParser : MonoBehaviour
 
     void Update()
     {
+        int Timerprep = 10;
+        Timerprep--;
+        if(Timerprep == 0)
+        {
+            Timerprep = 10;
+            timer--;
+            time.text = $"{timer}";
+        }
         if (Keyboard.current.rKey.wasPressedThisFrame)
             ReloadLevel();
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            
+        }
     }
 
     void LoadLevel()
