@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using JetBrains.Annotations;
+using System;
 
 /*
  * This script is responsible for reading a level layout from a text file and constructing the level
@@ -64,10 +65,7 @@ public class LevelParser : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
             ReloadLevel();
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            
-        }
+        
     }
 
     void LoadLevel()
@@ -132,6 +130,11 @@ public class LevelParser : MonoBehaviour
            Destroy(child.gameObject);
         
         LoadLevel();
+    }
+    public void gainCoin()
+    {
+        coins++;
+        coin.text = $"{coins}";
     }
 }
 
