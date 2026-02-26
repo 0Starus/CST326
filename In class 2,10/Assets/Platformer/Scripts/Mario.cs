@@ -12,15 +12,18 @@ public class Mario : MonoBehaviour
     public float groundAcceleration = 15f;
     public float apexHeight = 4.5f;
     public float apexTime = .5f;
+    public LevelParser level;
     Vector2 _velocity;
     CharacterController _controller;
+    Animator _animator;
     Quaternion facingRight;
     Quaternion facingLeft;
     void Start()
     {
         _controller = GetComponent<CharacterController>();
-        facingRight = Quaternion.identity;
-        facingLeft = Quaternion.Euler(0f,180f,0f);
+        _animator = GetComponent<Animator>();
+        facingRight = Quaternion.Euler(0f,90f,0f);
+        facingLeft = Quaternion.Euler(0f,270f,0f);
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class Mario : MonoBehaviour
         if(Keyboard.current.aKey.isPressed) direction -= 1f;
         bool jumpPressedThisFrame = Keyboard.current.spaceKey.wasPressedThisFrame;
         bool jumpHeld = Keyboard.current.spaceKey.isPressed;
+        bool runHeld = Keyboard.current.shiftKey.isPressed;
 
         float gravityMod = 1f;
 
@@ -43,7 +47,14 @@ public class Mario : MonoBehaviour
                     _velocity.x = 0f;
                 }
                 _velocity.x += direction*groundAcceleration * Time.deltaTime;
-                _velocity.x = Mathf.Clamp(_velocity.x,-walkSpeed,walkSpeed);
+                if (runHeld)
+                {
+                    _velocity.x = Mathf.Clamp(_velocity.x,-walkSpeed*5,walkSpeed*5);
+                }
+                else
+                {
+                    _velocity.x = Mathf.Clamp(_velocity.x,-walkSpeed,walkSpeed);
+                }
 
                 transform.rotation = (direction >0f) ? facingRight : facingLeft;
             }
@@ -74,10 +85,46 @@ public class Mario : MonoBehaviour
         if((collisions&CollisionFlags.CollidedAbove) != 0)
         {
             _velocity.y = -1f;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.up,out hit, 2f))
+            {
+                if (hit.collider.gameObject.CompareTag("brick"))
+                {
+                    Destroy(hit.collider.gameObject);
+                    level.gainScore(100);
+                }else if (hit.collider.gameObject.CompareTag("gold_brick"))
+                {
+                    level.gainCoin();
+                }
+            }
         }
         if((collisions&CollisionFlags.CollidedSides) != 0)
         {
             _velocity.x = 0f;
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, Vector3.right,out hit, 2f))
+            {
+                if (hit.collider.gameObject.CompareTag("goal"))
+                {
+                    level.loadNextLevel();
+                }
+            }
+            
+            
         }
+        _animator.SetBool("Grounded", _controller.isGrounded);
+        if (_controller.isGrounded)
+        {
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, -Vector3.up,out hit, 2f))
+            {
+                if (hit.collider.gameObject.CompareTag("water"))
+                {
+                    level.OnWaterHit();
+                }
+            }
+            
+        }
+        _animator.SetFloat("speed",Mathf.Abs(_velocity.x));
     }
 }

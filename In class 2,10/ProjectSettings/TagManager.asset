@@ -6,6 +6,9 @@ TagManager:
   tags:
   - brick
   - gold_brick
+  - goal
+  - water
+  - rock
   layers:
   - Default
   - TransparentFX

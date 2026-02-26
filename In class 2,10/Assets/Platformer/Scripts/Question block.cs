@@ -3,6 +3,10 @@ using UnityEngine;
 public class Questionblock : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    public delegate void QBlockHitFunc();
+    public static QBlockHitFunc OnQBlockHit;
+    
     public Renderer qBlock;
     int x = -1;
     float y = -.2f;
@@ -24,5 +28,9 @@ public class Questionblock : MonoBehaviour
             qBlock = GetComponent<Renderer>();
             qBlock.material.mainTextureOffset = new Vector2(x,y);
         }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        OnQBlockHit.Invoke();
     }
 }

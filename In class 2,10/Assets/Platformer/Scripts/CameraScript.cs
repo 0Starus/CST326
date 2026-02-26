@@ -4,11 +4,13 @@ using UnityEngine.InputSystem;
 public class CameraScript : MonoBehaviour
 {
     public LevelParser level;
+    public GameObject player;
+    private Vector3 offset;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
@@ -27,13 +29,22 @@ public class CameraScript : MonoBehaviour
                 if (hit.collider.CompareTag("brick"))
                 {
                     Destroy(hit.collider.gameObject);    
+                    level.gainScore(100);
                 }
                 else if (hit.collider.CompareTag("gold_brick"))
                 {
                     level.gainCoin();
+                } else if (hit.collider.CompareTag("goal"))
+                {
+                    level.loadNextLevel();
+                    Debug.Log("Level Complete!");
                 }
                 
             }
         }
+    }
+    void LateUpdate()
+    {
+        transform.position = new Vector3(player.transform.position.x + offset.x, transform.position.y,transform.position.z);
     }
 }

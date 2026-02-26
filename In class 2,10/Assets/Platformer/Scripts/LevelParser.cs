@@ -37,19 +37,32 @@ public class LevelParser : MonoBehaviour
     public TextAsset levelFile;
     public Transform levelRoot;
 
+    public TextAsset VictoryScreen;
+
     [Header("Prefabs")]
     public GameObject rockPrefab;
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
+    public GameObject goalPrefab;
+    public GameObject waterPrefab;
     
     public TextMeshProUGUI time;
     public TextMeshProUGUI coin;
+    public TextMeshProUGUI score;
     public int timer = 500;
     public int coins = 0;
+    public int totalScore = 0;
+    public GameObject player;
+    public Vector3 playerStart;
     void Start()
     {
+        playerStart = player.transform.position;
         LoadLevel();
+        Brick.OnBrickHit += OnBrickHit;
+        Questionblock.OnQBlockHit += OnQBlockHit;
+        Water.OnWaterHit += OnWaterHit;
+        Goal.OnGoalHit += OnGoalHit;
     }
 
     void Update()
@@ -61,6 +74,13 @@ public class LevelParser : MonoBehaviour
             Timerprep = 10;
             timer--;
             time.text = $"{timer}";
+        }
+        if(timer == 0)
+        {
+            Debug.Log("FAILURE!!!");
+            time.text = "FAILURE!!!";
+            score.text = "FAILURE!!!";
+            coin.text = "FAILURE!!!";
         }
         if (Keyboard.current.rKey.wasPressedThisFrame)
             ReloadLevel();
@@ -95,26 +115,38 @@ public class LevelParser : MonoBehaviour
                 {
                     //instantiate rock
                     Vector3 newPosition = new Vector3(columnIndex+0.5f, row+0.5f, 0);
-                    Transform rockInstance = Instantiate(rockPrefab).transform;
+                    Transform rockInstance = Instantiate(rockPrefab,levelRoot).transform;
                     rockInstance.position = newPosition;
                 } else if (currentChar == '?')
                 {
                     //instatiate Question mark block
                     Vector3 newPosition = new Vector3(columnIndex+0.5f, row+0.5f, 0);
-                    Transform rockInstance = Instantiate(questionBoxPrefab).transform;
+                    Transform rockInstance = Instantiate(questionBoxPrefab,levelRoot).transform;
                     rockInstance.position = newPosition;
                 } else if (currentChar == 'b')
                 {
                     Vector3 newPosition = new Vector3(columnIndex+0.5f, row+0.5f, 0);
-                    Transform rockInstance = Instantiate(brickPrefab).transform;
+                    Transform rockInstance = Instantiate(brickPrefab,levelRoot).transform;
                     rockInstance.position = newPosition;
                     //instantiate brick
                 } else if (currentChar == 's')
                 {
                     Vector3 newPosition = new Vector3(columnIndex+0.5f, row+0.5f, 0);
-                    Transform rockInstance = Instantiate(stonePrefab).transform;
+                    Transform rockInstance = Instantiate(stonePrefab,levelRoot).transform;
                     rockInstance.position = newPosition;
-                    //instnatiate stone
+                    //instantiate stone
+                } else if (currentChar == 'g')
+                {
+                    //instantiate goal
+                    Vector3 newPosition = new Vector3(columnIndex+0.5f, row+0.5f, 0);
+                    Transform goalInstance = Instantiate(goalPrefab,levelRoot).transform;
+                    goalInstance.position = newPosition;
+                }else if (currentChar == 'w')
+                {
+                    //instantiate water
+                    Vector3 newPosition = new Vector3(columnIndex+0.5f, row+0.5f, 0);
+                    Transform waterInstance = Instantiate(waterPrefab,levelRoot).transform;
+                    waterInstance.position = newPosition;
                 }
 
             }
@@ -126,6 +158,7 @@ public class LevelParser : MonoBehaviour
     // --------------------------------------------------------------------------
     void ReloadLevel()
     {
+        player.transform.position = playerStart;
         foreach (Transform child in levelRoot)
            Destroy(child.gameObject);
         
@@ -135,6 +168,38 @@ public class LevelParser : MonoBehaviour
     {
         coins++;
         coin.text = $"{coins}";
+        gainScore(100);
+    }
+    public void gainScore(int gainedScore)
+    {
+        totalScore+=gainedScore;
+        score.text = $"Mario\n{totalScore}";
+    }
+    public void loadNextLevel()
+    {
+        levelFile = VictoryScreen;
+        ReloadLevel();
+    }
+    public void OnBrickHit()
+    {
+        gainScore(100);
+    }
+
+    public void OnQBlockHit()
+    {
+        gainCoin();
+    }
+
+    public void OnWaterHit()
+    {
+        ReloadLevel();
+        Debug.Log("You Drowned!");
+    }
+
+    public void OnGoalHit()
+    {
+        loadNextLevel();
+        Debug.Log("Level Complete!");
     }
 }
 
