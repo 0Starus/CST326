@@ -50,11 +50,12 @@ public class LevelParser : MonoBehaviour
     public TextMeshProUGUI time;
     public TextMeshProUGUI coin;
     public TextMeshProUGUI score;
-    public int timer = 500;
+    public int timer = 100;
     public int coins = 0;
     public int totalScore = 0;
     public GameObject player;
     public Vector3 playerStart;
+    
     void Start()
     {
         playerStart = player.transform.position;
@@ -67,7 +68,8 @@ public class LevelParser : MonoBehaviour
 
     void Update()
     {
-        int Timerprep = 10;
+        int Timerprep = 10;  
+        
         Timerprep--;
         if(Timerprep == 0)
         {

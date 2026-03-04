@@ -15,12 +15,16 @@ public class Player : MonoBehaviour
     {
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
+
             GameObject shot = Instantiate(bulletPrefab, shootOffsetTransform.position, Quaternion.identity);
             Debug.Log("Bang!");
 
             // todo - destroy the bullet after 3 seconds
             Destroy(shot, 3f);
             // todo - trigger shoot animation
+            Animator animator = GetComponent<Animator>();
+            animator.SetTrigger("Shot Trigger");
+
         }
     }
 }

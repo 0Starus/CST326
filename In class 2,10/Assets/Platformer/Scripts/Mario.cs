@@ -109,8 +109,6 @@ public class Mario : MonoBehaviour
                     level.loadNextLevel();
                 }
             }
-            
-            
         }
         _animator.SetBool("Grounded", _controller.isGrounded);
         if (_controller.isGrounded)
