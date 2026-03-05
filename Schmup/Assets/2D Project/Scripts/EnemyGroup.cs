@@ -35,7 +35,7 @@ public class EnemyGroup : MonoBehaviour
         timerMove--;
         if(timerMove == 0)
         {
-            transform.position = new Vector2(transform.position.x+direction,transform.position.y);
+            transform.position = new Vector2(transform.position.x+direction*speed,transform.position.y);
             timerMove = 50;
         }
     }
