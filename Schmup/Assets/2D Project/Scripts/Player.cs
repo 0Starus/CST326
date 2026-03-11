@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class Player : MonoBehaviour
         
         // todo - trigger death animation
         
+        // todo - swap to Credits
+        SceneManager.LoadScene("Credits");
     }
 
     void OnBulletHit()

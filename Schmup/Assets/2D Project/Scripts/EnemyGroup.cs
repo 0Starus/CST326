@@ -14,17 +14,21 @@ public class EnemyGroup : MonoBehaviour
     //float direction = -2.56f;
     public float direction = -.5f;
     int speed = 1;
+    Transform newEnemy;
+    Transform newEnemy2;
+    Transform newEnemy3;
+    Transform newEnemy4;
     void Start()
     {
         //Instantiate(enemyPrefab, gameObject.transform.position, Quaternion.identity);
         Vector2 truePos = gameObject.transform.position;
-        Transform newEnemy = Instantiate(enemyPrefab.transform, enemies);
+        newEnemy = Instantiate(enemyPrefab.transform, enemies);
         newEnemy.position = truePos;
-        Transform newEnemy2 = Instantiate(enemy1Prefab.transform, enemies);
+        newEnemy2 = Instantiate(enemy1Prefab.transform, enemies);
         newEnemy2.position = new Vector2(truePos.x-2.56f,truePos.y);
-        Transform newEnemy3 = Instantiate(enemy2Prefab.transform, enemies);
+        newEnemy3 = Instantiate(enemy2Prefab.transform, enemies);
         newEnemy3.position = new Vector2(truePos.x+2.56f,truePos.y);
-        Transform newEnemy4 = Instantiate(enemy3Prefab.transform, enemies);
+        newEnemy4 = Instantiate(enemy3Prefab.transform, enemies);
         newEnemy4.position = new Vector2(truePos.x+5.12f,truePos.y);
         Enemy.OnEnemyDied += OnEnemyDied;
     }

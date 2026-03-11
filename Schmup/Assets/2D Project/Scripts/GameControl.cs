@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameControl : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Enemy enemy;
     void Start()
     {
         DontDestroyOnLoad(gameObject);

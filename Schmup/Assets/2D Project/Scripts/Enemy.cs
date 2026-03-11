@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         timerShoot--;
-        
+    
         if (timerShoot == 0)
         {
             GameObject shot = Instantiate(bulletPrefab, new Vector2(transform.position.x,transform.position.y-2.56f), Quaternion.identity);
