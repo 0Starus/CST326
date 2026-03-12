@@ -4,6 +4,8 @@ using System.Collections;
 public class CreditsManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public delegate void EnemiesCannotShootFunc();
+    public static EnemiesCannotShootFunc OnEnemiesCannotShoot;
     void Start()
     {
         StartCoroutine(WaitForCredits());
@@ -19,5 +21,6 @@ public class CreditsManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Debug.Log("5 seconds have passed!");
         SceneManager.LoadScene("Title");
+        OnEnemiesCannotShoot.Invoke();
     }
 }

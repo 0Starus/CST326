@@ -70,7 +70,9 @@ public class Player : MonoBehaviour
     }
     IEnumerator WaitForDeath()
     {
-        yield return new WaitForSeconds(5f);
+        Collider2D collider = GetComponent<Collider2D>();
+        Destroy(collider);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
         SceneManager.LoadScene("Credits");
     }
