@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class Enemy : MonoBehaviour
 {
     public delegate void EnemyDiedFunc(int points);
@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip tic;
     public AudioClip tac;
+    public AudioClip shoot;
+    public AudioClip death;
     public int worth = 10;
     int timerShoot = 70;
     void Start()
@@ -24,6 +26,9 @@ public class Enemy : MonoBehaviour
             GameObject shot = Instantiate(bulletPrefab, new Vector2(transform.position.x,transform.position.y-2.56f), Quaternion.identity);
             Destroy(shot, 3f);
             timerShoot= 70;
+            audioSource.PlayOneShot(shoot);
+            Animator animator = GetComponent<Animator>();
+            animator.SetTrigger("ShotTrigger");
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -32,8 +37,12 @@ public class Enemy : MonoBehaviour
         
         if(collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
-            OnEnemyDied.Invoke(worth);
+            audioSource.PlayOneShot(death);
             Destroy(collision.gameObject);
+            Animator animator = GetComponent<Animator>();
+            animator.SetTrigger("IsDead");
+            StartCoroutine(WaitForDeath());
+            OnEnemyDied.Invoke(worth);
             Destroy(gameObject);
         }
         // todo - destroy the bullet
@@ -48,5 +57,9 @@ public class Enemy : MonoBehaviour
     public void moveRight()
     {
         audioSource.PlayOneShot(tac);
+    }
+    IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSeconds(5f);
     }
 }

@@ -14,7 +14,7 @@ public class CreditsManager : MonoBehaviour
     {
         
     }
-     IEnumerator WaitForCredits()
+    IEnumerator WaitForCredits()
     {
         yield return new WaitForSeconds(5f);
         Debug.Log("5 seconds have passed!");

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2780578351982212338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -7.82, z: 0}
+  m_LocalPosition: {x: -1.2577615, y: 2.1340847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,8 +97,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2457785739244962049, guid: 9c36cb3f0e7ef8b44b73ef0ca7e799a6, type: 3}
   tic: {fileID: 8300000, guid: 87db6266891cabe4b80189453ecc1a4d, type: 3}
   tac: {fileID: 8300000, guid: cbc95a3c48e66dd49a511ef6c7608122, type: 3}
+  shoot: {fileID: 8300000, guid: 4ea698fffd5fefe4c80d870a15595bb1, type: 3}
+  death: {fileID: 8300000, guid: e50420cc115e25e4c8971aedf240ccaa, type: 3}
   worth: 25
-  enemyNumber: 0
 --- !u!212 &8876198782338584104
 SpriteRenderer:
   serializedVersion: 2

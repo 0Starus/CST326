@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -8,9 +9,13 @@ public class Player : MonoBehaviour
     public Transform shootOffsetTransform;
     public bool canShoot = true;
     public Bullet bullet;
+    public AudioClip shoot;
+    public AudioClip death;
+    AudioSource audioSource;
     void Start()
     {
         // todo - get and cache animator
+        audioSource = GetComponent<AudioSource>();
         Bullet.OnBulletHit += OnBulletHit;
     }
     
@@ -18,7 +23,7 @@ public class Player : MonoBehaviour
     {
         if (canShoot && Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-
+            audioSource.PlayOneShot(shoot);
             canShoot = false;
             GameObject shot = Instantiate(bulletPrefab, shootOffsetTransform.position, Quaternion.identity);
             Debug.Log("Bang!");
@@ -45,19 +50,28 @@ public class Player : MonoBehaviour
         
         if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy_Bullet"))
         {
+            audioSource.PlayOneShot(death);
             Destroy(collision.gameObject);
+            Animator animator = GetComponent<Animator>();
+            animator.SetTrigger("IsDead");
+            StartCoroutine(WaitForDeath());
             Destroy(gameObject);
+            SceneManager.LoadScene("Credits");
         }
         // todo - destroy the bullet
         
         // todo - trigger death animation
         
         // todo - swap to Credits
-        SceneManager.LoadScene("Credits");
+        
     }
 
     void OnBulletHit()
     {
         canShoot = true;
+    }
+    IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSeconds(5f);
     }
 }
