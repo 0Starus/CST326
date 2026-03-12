@@ -42,8 +42,7 @@ public class Enemy : MonoBehaviour
             Animator animator = GetComponent<Animator>();
             animator.SetTrigger("IsDead");
             StartCoroutine(WaitForDeath());
-            OnEnemyDied.Invoke(worth);
-            Destroy(gameObject);
+            
         }
         // todo - destroy the bullet
         
@@ -61,5 +60,7 @@ public class Enemy : MonoBehaviour
     IEnumerator WaitForDeath()
     {
         yield return new WaitForSeconds(5f);
+        OnEnemyDied.Invoke(worth);
+        Destroy(gameObject);
     }
 }

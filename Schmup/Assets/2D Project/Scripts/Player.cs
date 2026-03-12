@@ -55,8 +55,6 @@ public class Player : MonoBehaviour
             Animator animator = GetComponent<Animator>();
             animator.SetTrigger("IsDead");
             StartCoroutine(WaitForDeath());
-            Destroy(gameObject);
-            SceneManager.LoadScene("Credits");
         }
         // todo - destroy the bullet
         
@@ -73,5 +71,7 @@ public class Player : MonoBehaviour
     IEnumerator WaitForDeath()
     {
         yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+        SceneManager.LoadScene("Credits");
     }
 }
