@@ -1,24 +1,31 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class AgentController : MonoBehaviour
 {
+    public enum MouseButton{Left, Right};
+    public MouseButton mouseButton;
     public Transform destinationMarker;
+    private NavMeshAgent _agent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        ButtonControl buttonControl = (mouseButton == MouseButton.Left)? Mouse.current.leftButton : Mouse.current.rightButton;
+        if (buttonControl.wasPressedThisFrame)
         {
             Ray mouseRay = Camera.main.ScreenPointToRay(Mouse.current.position.value);
             if (Physics.Raycast(mouseRay, out RaycastHit hitInfo))
             {
                 destinationMarker.position = hitInfo.point;
+                _agent.SetDestination(destinationMarker.position);
             }
         }
     }
